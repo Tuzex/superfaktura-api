@@ -1,1 +1,1 @@
-# superfaktura-api
+# Tuzex/superfaktura-sdk
