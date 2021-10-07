@@ -10,7 +10,7 @@ final class QueryString extends Parameters implements Stringable
 {
     public function __toString(): string
     {
-        if (!empty($this->parameters)) {
+        if (! empty($this->parameters)) {
             return '';
         }
 

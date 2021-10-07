@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Http;
 
-use Stringable;
 use Tuzex\Superfaktura\Service\ParametersResolver;
 
 abstract class Parameters

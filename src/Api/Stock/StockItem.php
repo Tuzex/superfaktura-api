@@ -14,7 +14,6 @@ final class StockItem
     public function __construct(
         private Resource $resource,
     ) {
-        
     }
 
     public static function fromArray(array $attributes): self
@@ -26,7 +25,6 @@ final class StockItem
 
     public function editItem()
     {
-        
     }
 
     public function getAttributes(): array

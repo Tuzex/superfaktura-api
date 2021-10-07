@@ -27,7 +27,7 @@ final class StockItems implements IteratorAggregate
 
     public function getAttributes(): array
     {
-        if (!$this->fetched) {
+        if (! $this->fetched) {
             $this->fetched = true;
             $this->attributes = array_map(
                 fn (array $attributes): StockItem => StockItem::fromArray(reset($attributes)),

@@ -15,13 +15,13 @@ final class RelativeUrl implements Stringable
         $this->url = sprintf('/%s', trim($resource, '/'));
     }
 
-    public function addQueryString(QueryString $query): void
-    {
-        $this->url = sprintf('%s%s', $this->url, $query);
-    }
-
     public function __toString(): string
     {
         return $this->url;
+    }
+
+    public function addQueryString(QueryString $query): void
+    {
+        $this->url = sprintf('%s%s', $this->url, $query);
     }
 }

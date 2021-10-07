@@ -13,7 +13,6 @@ final class Stock
     public function __construct(
         private HttpClient $httpClient,
     ) {
-        
     }
 
 //    public function addItem()

@@ -12,7 +12,6 @@ final class AsyncHttpClientResponse implements Response
     public function __construct(
         private ResponseInterface $response
     ) {
-
     }
 
     public function toArray(): array

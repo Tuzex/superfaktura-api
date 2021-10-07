@@ -15,7 +15,7 @@ final class GetStockRequest extends GetRequest implements Request
     public function __construct(array $parameters = [])
     {
         $parametersResolver = ParametersResolver::default();
-        /**
+        /*
          * @todo SETUP
          */
 

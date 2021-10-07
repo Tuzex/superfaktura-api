@@ -29,7 +29,7 @@ final class AsyncHttpClient implements HttpClient
         $options = [
             'body' => [
                 'data' => $request->getMessage(),
-            ]
+            ],
         ];
 
         return new AsyncHttpClientResponse(
