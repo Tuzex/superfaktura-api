@@ -11,6 +11,6 @@ final class MessageBody extends Parameters implements Stringable
 {
     public function __toString(): string
     {
-        return json_encode($this->getValues());
+        return (string) json_encode($this->getValues());
     }
 }
