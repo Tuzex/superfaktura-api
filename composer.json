@@ -1,0 +1,42 @@
+{
+  "name": "tuzex/superfaktura",
+  "description": "",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edo Barnas",
+      "email": "iam@edobarnas.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "8.0.1",
+      "ext-intl": "1"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Tuzex\\Superfaktura\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tuzex\\Superfaktura\\Test\\": "tests"
+    }
+  },
+  "require": {
+    "php": "8.*",
+    "beberlei/assert": "3.3.*",
+    "symfony/http-client": "5.*",
+    "symfony/options-resolver": "5.*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "0.12.*",
+    "phpstan/phpstan-phpunit": "0.12.*",
+    "phpunit/phpunit": "9.5.*",
+    "symfony/var-dumper": "^5.3",
+    "symplify/easy-coding-standard": "9.4.*"
+  }
+}
