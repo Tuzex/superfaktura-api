@@ -8,20 +8,20 @@ use Stringable;
 
 final class RelativeUrl implements Stringable
 {
-    private string $url;
+    private string $path;
 
-    public function __construct(string $resource)
+    public function __construct(string $path, array $parameters = [])
     {
-        $this->url = sprintf('/%s', trim($resource, '/'));
+        $this->path = sprintf('/%s', strtr(trim($path, '/'), $parameters));
     }
 
     public function __toString(): string
     {
-        return $this->url;
+        return $this->path;
     }
 
-    public function addQueryString(QueryString $query): void
+    public function extend(QueryString $query): self
     {
-        $this->url = sprintf('%s%s', $this->url, $query);
+        return new self(sprintf('%s%s', $this->path, $query));
     }
 }

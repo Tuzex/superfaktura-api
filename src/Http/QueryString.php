@@ -10,13 +10,22 @@ final class QueryString extends Parameters implements Stringable
 {
     public function __toString(): string
     {
-        if (! empty($this->parameters)) {
+        if (! $this->hasValues()) {
             return '';
         }
 
-        $queryString = http_build_query($this->getValues(), arg_separator: '/');
-        $queryArguments = str_replace('=', ':', $queryString);
+        return sprintf('/%s', $this->stringifyValues());
+    }
 
-        return sprintf('/%s', $queryArguments);
+    private function stringifyValues(): string
+    {
+        $values = $this->getAttributes();
+        $parametrizedValues = array_map(
+            fn (string $key, $value): string => urlencode(sprintf('%s:%s', $key, $value)),
+            array_keys($values),
+            $values
+        );
+
+        return implode('/', $parametrizedValues);
     }
 }

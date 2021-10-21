@@ -4,19 +4,29 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Http;
 
-use Tuzex\Superfaktura\Service\ParametersResolver;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 abstract class Parameters
 {
-    private array $values;
+    private array $attributes;
 
-    public function __construct(array $values, ParametersResolver $resolver)
+    final public function __construct(array $attributes, OptionsResolver $resolver)
     {
-        $this->values = $resolver->resolve($values);
+        $this->attributes = $resolver->resolve($attributes);
     }
 
-    protected function getValues(): array
+    public static function empty(): static
     {
-        return $this->values;
+        return new static([], new OptionsResolver());
+    }
+
+    protected function hasValues(): bool
+    {
+        return ! empty($this->attributes);
+    }
+
+    protected function getAttributes(): array
+    {
+        return $this->attributes;
     }
 }
