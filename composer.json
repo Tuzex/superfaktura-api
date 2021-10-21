@@ -29,7 +29,6 @@
   "require": {
     "php": "8.*",
     "beberlei/assert": "3.3.*",
-    "symfony/http-client": "5.*",
     "symfony/options-resolver": "5.*"
   },
   "require-dev": {
