@@ -40,12 +40,14 @@ final class GetListOfStockItems implements Endpoint
 
                     $optionsResolver->define('price_from')
                         ->allowedTypes('float')
-                        ->normalize(fn (Options $options, float $value): float => $value > 0 ? $value : 0)
+                        ->allowedValues(fn (float $value): bool => $value >= 0.0)
                         ->info('Price from');
 
                     $optionsResolver->define('price_to')
                         ->allowedTypes('float')
-                        ->normalize(fn (Options $options, float $value): float => $value > 0 ? $value : 0)
+                        ->allowedValues(
+                            fn (float $value): bool => $value >= 0.0 && $value > $optionsResolver->offsetGet('price_from')
+                        )
                         ->info('Price to');
 
                     $optionsResolver->define('status')
@@ -60,7 +62,7 @@ final class GetListOfStockItems implements Endpoint
     }
 
     /**
-     * @param array $options {     *
+     * @param array $options {
      *
      * @var int sorting type, ASC or DESC [default: DESC]
      *          }
