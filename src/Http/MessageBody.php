@@ -11,10 +11,6 @@ final class MessageBody extends Attributes implements Stringable
 {
     public function __toString(): string
     {
-        $json = json_encode($this->getOptions());
-        if (! $json) {
-        }
-
-        return $json;
+        return (string) json_encode($this->getOptions(), JSON_THROW_ON_ERROR);
     }
 }
