@@ -28,7 +28,7 @@ final class OptionsResolverBuilder
             function (OptionsResolver $optionsResolver): void {
                 $optionsResolver->define('page')
                     ->allowedTypes('int')
-                    ->normalize(fn (Options $options, int $value): int => $value > 0 ? $value : 1)
+                    ->allowedValues(fn (int $value): bool => $value >= 1)
                     ->info('Page number');
 
                 $optionsResolver->define('per_page')
