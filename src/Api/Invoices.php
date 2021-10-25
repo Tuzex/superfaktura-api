@@ -17,7 +17,7 @@ final class Invoices
     public function list(array $options = []): Collection
     {
         return new Collection(
-            new GetListOfInvoices($this->httpClient, $options)
+            new GetListOfInvoices($this->httpClient)
         );
     }
 }
