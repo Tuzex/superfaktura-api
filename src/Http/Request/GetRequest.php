@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Http\Request;
 
-use Tuzex\Superfaktura\Http\HttpRequest;
+use Tuzex\Superfaktura\Api\Uri;
 use Tuzex\Superfaktura\Http\QueryString;
-use Tuzex\Superfaktura\Http\RelativeUrl;
+use Tuzex\Superfaktura\Http\Request;
 
-final class GetHttpRequest implements HttpRequest
+final class GetRequest implements Request
 {
     public function __construct(
-        private RelativeUrl $relativeUrl,
+        private Uri $uri,
         private QueryString $queryString,
     ) {
     }
@@ -21,9 +21,9 @@ final class GetHttpRequest implements HttpRequest
         return 'GET';
     }
 
-    public function getUrl(): string
+    public function getUri(): string
     {
-        return (string) $this->relativeUrl->extend($this->queryString);
+        return sprintf('%s%s', $this->uri, $this->queryString);
     }
 
     public function getData(): array

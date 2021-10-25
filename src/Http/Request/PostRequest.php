@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Http\Request;
 
-use Tuzex\Superfaktura\Http\HttpRequest;
-use Tuzex\Superfaktura\Http\MessageData;
-use Tuzex\Superfaktura\Http\RelativeUrl;
+use Tuzex\Superfaktura\Http\MessageBody;
+use Tuzex\Superfaktura\Http\Request;
+use Tuzex\Superfaktura\Http\Uri;
 
-final class PostHttpRequest implements HttpRequest
+final class PostRequest implements Request
 {
     public function __construct(
-        private RelativeUrl $relativeUrl,
-        private MessageData $messageData,
+        private Uri $uri,
+        private MessageBody $messageData,
     ) {
     }
 
@@ -21,9 +21,9 @@ final class PostHttpRequest implements HttpRequest
         return 'POST';
     }
 
-    public function getUrl(): string
+    public function getUri(): string
     {
-        return (string) $this->relativeUrl;
+        return (string) $this->uri;
     }
 
     public function getData(): array

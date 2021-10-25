@@ -6,5 +6,5 @@ namespace Tuzex\Superfaktura\Http;
 
 interface HttpClient
 {
-    public function send(HttpRequest $request): HttpResponse;
+    public function send(Request $request): Response;
 }
