@@ -61,12 +61,6 @@ final class GetListOfStockItems implements Endpoint
         $this->optionsResolver = $optionsResolverBuilder->build();
     }
 
-    /**
-     * @param array $options {
-     *
-     * @var int sorting type, ASC or DESC [default: DESC]
-     *          }
-     */
     public function call(array $options = []): Response
     {
         return $this->httpClient->send(
