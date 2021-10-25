@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Http\Request;
 
+use Tuzex\Superfaktura\Api\Uri;
 use Tuzex\Superfaktura\Http\MessageBody;
 use Tuzex\Superfaktura\Http\Request;
-use Tuzex\Superfaktura\Http\Uri;
 
 final class PostRequest implements Request
 {
