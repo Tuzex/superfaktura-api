@@ -30,30 +30,25 @@ final class GetListOfStockItems implements Endpoint
                 function (OptionsResolver $optionsResolver): void {
                     $optionsResolver->define('search')
                         ->allowedTypes('string')
-                        ->normalize(fn (Options $options, string $value): string => base64_encode($value))
-                        ->info('Searches in fields: name, SKU, description');
+                        ->normalize(fn (Options $options, string $value): string => base64_encode($value));
 
                     $optionsResolver->define('sku')
                         ->allowedTypes('string')
-                        ->normalize(fn (Options $options, string $value): string => base64_encode($value))
-                        ->info('Search by SKU');
+                        ->normalize(fn (Options $options, string $value): string => base64_encode($value));
 
                     $optionsResolver->define('price_from')
                         ->allowedTypes('float')
-                        ->allowedValues(fn (float $value): bool => $value >= 0.0)
-                        ->info('Price from');
+                        ->allowedValues(fn (float $value): bool => $value >= 0.0);
 
                     $optionsResolver->define('price_to')
                         ->allowedTypes('float')
                         ->allowedValues(
                             fn (float $value): bool => $value >= 0.0 && $value > $optionsResolver->offsetGet('price_from')
-                        )
-                        ->info('Price to');
+                        );
 
                     $optionsResolver->define('status')
                         ->allowedTypes('int')
-                        ->allowedValues(1)
-                        ->info('Shows only items that are in stock (1=yes)');
+                        ->allowedValues(1);
                 }
             );
 

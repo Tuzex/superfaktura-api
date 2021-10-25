@@ -30,41 +30,33 @@ final class GetListOfInvoices implements Endpoint
                 function (OptionsResolver $optionsResolver): void {
                     $optionsResolver->define('type')
                         ->allowedTypes('string')
-                        ->default('regular')
-                        ->info('Type of document (proforma, regular, ...). Use "|" as separator for multiple values.');
+                        ->default('regular');
 
                     $optionsResolver->define('amount_from')
                         ->allowedTypes('float')
-                        ->allowedValues(fn (float $value): bool => $value >= 0.0)
-                        ->info('Amount from');
+                        ->allowedValues(fn (float $value): bool => $value >= 0.0);
 
                     $optionsResolver->define('amount_to')
                         ->allowedTypes('float')
                         ->allowedValues(
                             fn (float $value): bool => $value >= 0.0 && $value > $optionsResolver->offsetGet('amount_from')
-                        )
-                        ->info('Amount to');
+                        );
 
                     $optionsResolver->define('client_id')
-                        ->allowedTypes('int')
-                        ->info('Client ID');
+                        ->allowedTypes('int');
 
                     $optionsResolver->define('ignore')
-                        ->allowedTypes('string', 'int')
-                        ->info('IDs of invoices to be ignored. Use "|" as separator for multiple values.');
+                        ->allowedTypes('string', 'int');
 
                     $optionsResolver->define('order_no')
-                        ->allowedTypes('string')
-                        ->info('Order number, from which invoice is created');
+                        ->allowedTypes('string');
 
                     $optionsResolver->define('search')
                         ->allowedTypes('string')
-                        ->normalize(fn (Options $options, string $value): string => base64_encode($value))
-                        ->info('Search string');
+                        ->normalize(fn (Options $options, string $value): string => base64_encode($value));
 
                     $optionsResolver->define('tag')
-                        ->allowedTypes('int')
-                        ->info('Tag ID');
+                        ->allowedTypes('int');
                 }
             );
 
