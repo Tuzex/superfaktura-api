@@ -20,7 +20,7 @@ final class Collection extends Resource
         return $this;
     }
 
-    public function paginate(int $page, int $perPage = 50): self
+    public function paginate(int $page, int $perPage): self
     {
         $this->addOptions([
             'page' => $page,
