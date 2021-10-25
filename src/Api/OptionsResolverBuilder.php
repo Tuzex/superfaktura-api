@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tuzex\Superfaktura\Api;
 
 use Closure;
-use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class OptionsResolverBuilder
