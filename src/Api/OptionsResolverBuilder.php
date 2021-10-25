@@ -37,17 +37,17 @@ final class OptionsResolverBuilder
         return $this;
     }
 
-    public function addSorting(string $attribute = 'regular_count'): self
+    public function addSorting(string $sort = 'regular_count'): self
     {
         $this->setCustom(
-            function (OptionsResolver $optionsResolver) use ($attribute): void {
+            function (OptionsResolver $optionsResolver) use ($sort): void {
                 $optionsResolver->define('direction')
                     ->allowedTypes('string')
                     ->allowedValues('ASC', 'DESC');
 
                 $optionsResolver->define('sort')
                     ->allowedTypes('string')
-                    ->default($attribute);
+                    ->default($sort);
             }
         );
 
