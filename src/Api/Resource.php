@@ -20,9 +20,10 @@ class Resource implements IteratorAggregate
 
     public function isOk(): bool
     {
-        $this->callEndpoint();
+        $response = $this->getResponse();
+        $statusCode = $response->getStatusCode();
 
-        return 200 <= $this->response->getStatusCode() && 299 >= $this->response->getStatusCode();
+        return 200 <= $statusCode && 299 >= $statusCode;
     }
 
     public function hasData(): bool
@@ -37,12 +38,12 @@ class Resource implements IteratorAggregate
 
     public function getData(): array
     {
-        return $this->isOk() ? $this->response->getPayload() : [];
+        return $this->isOk() ? $this->getResponse()->getPayload() : [];
     }
 
     public function getErrors(): array
     {
-        return ! $this->isOk() ? $this->response->getPayload() : [];
+        return ! $this->isOk() ? $this->getResponse()->getPayload() : [];
     }
 
     public function getIterator(): ArrayIterator
@@ -56,12 +57,12 @@ class Resource implements IteratorAggregate
         $this->response = null;
     }
 
-    private function callEndpoint(): void
+    private function getResponse(): Response
     {
-        if ($this->response) {
-            return;
+        if (! $this->response) {
+            $this->response = $this->endpoint->call($this->options);
         }
 
-        $this->response = $this->endpoint->call($this->options);
+        return $this->response;
     }
 }
