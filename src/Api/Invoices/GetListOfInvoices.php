@@ -38,9 +38,7 @@ final class GetListOfInvoices implements Endpoint
 
                     $optionsResolver->define('amount_to')
                         ->allowedTypes('float')
-                        ->allowedValues(
-                            fn (float $value): bool => $value >= 0.0 && $value > $optionsResolver->offsetGet('amount_from')
-                        );
+                        ->allowedValues(fn (float $value): bool => $value >= $optionsResolver->offsetGet('amount_from'));
 
                     $optionsResolver->define('client_id')
                         ->allowedTypes('int');

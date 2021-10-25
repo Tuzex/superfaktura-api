@@ -42,9 +42,7 @@ final class GetListOfStockItems implements Endpoint
 
                     $optionsResolver->define('price_to')
                         ->allowedTypes('float')
-                        ->allowedValues(
-                            fn (float $value): bool => $value >= 0.0 && $value > $optionsResolver->offsetGet('price_from')
-                        );
+                        ->allowedValues(fn (float $value): bool => $value >= $optionsResolver->offsetGet('price_from'));
 
                     $optionsResolver->define('status')
                         ->allowedTypes('int')
