@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Api\Stock;
 
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tuzex\Superfaktura\Api\Endpoint;
 use Tuzex\Superfaktura\Api\Uri;
 use Tuzex\Superfaktura\Http\HttpClient;
@@ -26,8 +27,10 @@ final class ViewStockItemDetails implements Endpoint
 
     public function call(array $options = []): Response
     {
+        $optionsResolver = new OptionsResolver();
+
         return $this->httpClient->send(
-            new GetRequest($this->uri, QueryString::empty())
+            new GetRequest($this->uri, new QueryString($optionsResolver, $options))
         );
     }
 }

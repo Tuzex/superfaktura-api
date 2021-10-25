@@ -10,14 +10,9 @@ abstract class Attributes
 {
     private array $options;
 
-    final public function __construct(OptionsResolver $resolver, array $options = [])
+    public function __construct(OptionsResolver $resolver, array $options = [])
     {
         $this->options = $resolver->resolve($options);
-    }
-
-    public static function empty(): self
-    {
-        return new static(new OptionsResolver(), []);
     }
 
     public function hasOptions(): bool
