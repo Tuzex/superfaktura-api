@@ -14,16 +14,29 @@ final class OptionsResolverBuilder
      */
     private array $configurators = [];
 
-    public function setCustom(Closure $configurator): self
+    public function addCustom(Closure $configurator): self
     {
         $this->configurators[] = $configurator;
 
         return $this;
     }
 
+    public function addListInfo(): self
+    {
+        $this->addCustom(
+            function (OptionsResolver $optionsResolver): void {
+                $optionsResolver->define('listinfo')
+                    ->allowedTypes('int')
+                    ->allowedValues(0, 1);
+            }
+        );
+
+        return $this;
+    }
+
     public function addPagination(): self
     {
-        $this->setCustom(
+        $this->addCustom(
             function (OptionsResolver $optionsResolver): void {
                 $optionsResolver->define('page')
                     ->allowedTypes('int')
@@ -39,7 +52,7 @@ final class OptionsResolverBuilder
 
     public function addSorting(string $sort = 'regular_count'): self
     {
-        $this->setCustom(
+        $this->addCustom(
             function (OptionsResolver $optionsResolver) use ($sort): void {
                 $optionsResolver->define('direction')
                     ->allowedTypes('string')
@@ -48,19 +61,6 @@ final class OptionsResolverBuilder
                 $optionsResolver->define('sort')
                     ->allowedTypes('string')
                     ->default($sort);
-            }
-        );
-
-        return $this;
-    }
-
-    public function addListInfo(): self
-    {
-        $this->setCustom(
-            function (OptionsResolver $optionsResolver): void {
-                $optionsResolver->define('listinfo')
-                    ->allowedTypes('int')
-                    ->allowedValues(0, 1);
             }
         );
 

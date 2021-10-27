@@ -26,7 +26,7 @@ final class GetListOfStockItems implements Endpoint
         $optionsResolverBuilder->addPagination()
             ->addSorting()
             ->addListInfo()
-            ->setCustom(
+            ->addCustom(
                 function (OptionsResolver $optionsResolver): void {
                     $optionsResolver->define('search')
                         ->allowedTypes('string')

@@ -26,7 +26,7 @@ final class GetListOfInvoices implements Endpoint
         $optionsResolverBuilder->addPagination()
             ->addSorting()
             ->addListInfo()
-            ->setCustom(
+            ->addCustom(
                 function (OptionsResolver $optionsResolver): void {
                     $optionsResolver->define('type')
                         ->allowedTypes('string')
