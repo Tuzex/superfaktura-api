@@ -7,21 +7,15 @@ namespace Tuzex\Superfaktura\Api\Invoices;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Tuzex\Superfaktura\Api\Endpoint;
+use Tuzex\Superfaktura\Api\GetEndpoint;
 use Tuzex\Superfaktura\Api\OptionsResolverBuilder;
 use Tuzex\Superfaktura\Api\Uri;
 use Tuzex\Superfaktura\Http\HttpClient;
-use Tuzex\Superfaktura\Http\QueryString;
-use Tuzex\Superfaktura\Http\Request\GetRequest;
-use Tuzex\Superfaktura\Http\Response;
 
-final class GetListOfInvoices implements Endpoint
+final class GetListOfInvoices extends GetEndpoint implements Endpoint
 {
-    private Uri $uri;
-    private OptionsResolver $optionsResolver;
-
-    public function __construct(
-        private HttpClient $httpClient,
-    ) {
+    public function __construct(HttpClient $httpClient)
+    {
         $optionsResolverBuilder = new OptionsResolverBuilder();
         $optionsResolverBuilder->addPagination()
             ->addSorting()
@@ -58,14 +52,6 @@ final class GetListOfInvoices implements Endpoint
                 }
             );
 
-        $this->uri = new Uri('invoices/index.json');
-        $this->optionsResolver = $optionsResolverBuilder->build();
-    }
-
-    public function call(array $options): Response
-    {
-        return $this->httpClient->send(
-            new GetRequest($this->uri, new QueryString($this->optionsResolver, $options))
-        );
+        parent::__construct($httpClient, $optionsResolverBuilder->build(), new Uri('invoices/index.json'));
     }
 }
