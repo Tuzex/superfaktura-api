@@ -17,10 +17,10 @@ final class GetListOfInvoices extends GetEndpoint implements Endpoint
     public function __construct(HttpClient $httpClient)
     {
         $optionsResolverBuilder = new OptionsResolverBuilder();
-        $optionsResolverBuilder->addPagination()
-            ->addSorting()
-            ->addListInfo()
-            ->addCustom(
+        $optionsResolverBuilder->enableSorting()
+            ->enablePagination()
+            ->allowListInfo()
+            ->setCustom(
                 function (OptionsResolver $optionsResolver): void {
                     $optionsResolver->define('type')
                         ->allowedTypes('string')
