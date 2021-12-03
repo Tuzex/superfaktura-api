@@ -11,10 +11,10 @@ final class Collection extends Resource
         return ! $this->hasData();
     }
 
-    public function filter(Criteria ...$criterias): self
+    public function filter(Filter ...$filters): self
     {
-        foreach ($criterias as $criteria) {
-            $this->addOptions($criteria->getOptions());
+        foreach ($filters as $filter) {
+            $this->addOptions($filter->getCriteria());
         }
 
         return $this;

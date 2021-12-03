@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tuzex\Superfaktura\Api\Stock\Filter;
 
-use Tuzex\Superfaktura\Api\Criteria;
+use Tuzex\Superfaktura\Api\Filter;
 
-final class ByPrice implements Criteria
+final class ByPrice implements Filter
 {
     public function __construct(
         private float $priceFrom,
@@ -14,7 +14,7 @@ final class ByPrice implements Criteria
     ) {
     }
 
-    public function getOptions(): array
+    public function getCriteria(): array
     {
         $options = [
             'price_from' => $this->priceFrom,
