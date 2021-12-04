@@ -23,8 +23,8 @@ final class Collection extends Resource
     public function paginate(int $page, int $perPage): self
     {
         $this->addOptions([
-            'page' => $page,
-            'per_page' => $perPage,
+            'page' => $page > 0 ? $page : 1,
+            'per_page' => $perPage > 0 ? $perPage : 1,
         ]);
 
         return $this;
