@@ -5,28 +5,27 @@ declare(strict_types=1);
 namespace Tuzex\Superfaktura\Http;
 
 use Stringable;
-use Tuzex\Superfaktura\Api\Attributes;
 
-final class QueryString extends Attributes implements Stringable
+final class QueryString extends Data implements Stringable
 {
     public function __toString(): string
     {
-        if (! $this->hasOptions()) {
+        if (! $this->hasAttributes()) {
             return '';
         }
 
-        return sprintf('/%s', $this->stringifyOptions());
+        return sprintf('/%s', $this->stringifyAttributes());
     }
 
-    private function stringifyOptions(): string
+    private function stringifyAttributes(): string
     {
-        $options = $this->getOptions();
-        $parameterizedOptions = array_map(
+        $attributes = $this->getAttributes();
+        $parameterizedAttributes = array_map(
             fn (string $key, $value): string => urlencode(sprintf('%s:%s', $key, $value)),
-            array_keys($options),
-            $options,
+            array_keys($attributes),
+            $attributes,
         );
 
-        return implode('/', $parameterizedOptions);
+        return implode('/', $parameterizedAttributes);
     }
 }
