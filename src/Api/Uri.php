@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
 use Stringable;
 
 final class Uri implements Stringable
 {
     private string $path;
+
     private array $parameters;
 
     public function __construct(string $path, array $parameters = [])

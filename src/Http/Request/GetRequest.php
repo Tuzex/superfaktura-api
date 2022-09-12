@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Http\Request;
+namespace Codea\Superfaktura\Http\Request;
 
-use Tuzex\Superfaktura\Api\Uri;
-use Tuzex\Superfaktura\Http\QueryString;
-use Tuzex\Superfaktura\Http\Request;
+use Codea\Superfaktura\Api\Uri;
+use Codea\Superfaktura\Http\QueryString;
+use Codea\Superfaktura\Http\Request;
 
 final class GetRequest implements Request
 {

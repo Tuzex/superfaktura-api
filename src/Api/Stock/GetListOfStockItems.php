@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api\Stock;
+namespace Codea\Superfaktura\Api\Stock;
 
+use Codea\Superfaktura\Api\Endpoint;
+use Codea\Superfaktura\Api\GetEndpoint;
+use Codea\Superfaktura\Api\OptionsResolverBuilder;
+use Codea\Superfaktura\Api\Uri;
+use Codea\Superfaktura\Http\HttpClient;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Tuzex\Superfaktura\Api\Endpoint;
-use Tuzex\Superfaktura\Api\GetEndpoint;
-use Tuzex\Superfaktura\Api\OptionsResolverBuilder;
-use Tuzex\Superfaktura\Api\Uri;
-use Tuzex\Superfaktura\Http\HttpClient;
 
 final class GetListOfStockItems extends GetEndpoint implements Endpoint
 {

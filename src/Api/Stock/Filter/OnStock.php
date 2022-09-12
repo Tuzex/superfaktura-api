@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api\Stock\Filter;
+namespace Codea\Superfaktura\Api\Stock\Filter;
 
-use Tuzex\Superfaktura\Api\Filter;
+use Codea\Superfaktura\Api\Filter;
 
 final class OnStock implements Filter
 {

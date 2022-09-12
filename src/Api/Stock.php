@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
-use Tuzex\Superfaktura\Api\Stock\GetListOfStockItems;
-use Tuzex\Superfaktura\Api\Stock\ViewStockItemDetails;
-use Tuzex\Superfaktura\Http\HttpClient;
-use Tuzex\Superfaktura\Service\Endpoint\EndpointDefinition;
-use Tuzex\Superfaktura\Service\Endpoint\EndpointProvider;
-use Tuzex\Superfaktura\Service\Endpoint\Provider\PersistentEndpointProvider;
+use Codea\Superfaktura\Api\Stock\GetListOfStockItems;
+use Codea\Superfaktura\Api\Stock\ViewStockItemDetails;
+use Codea\Superfaktura\Http\HttpClient;
+use Codea\Superfaktura\Service\Endpoint\EndpointDefinition;
+use Codea\Superfaktura\Service\Endpoint\EndpointProvider;
+use Codea\Superfaktura\Service\Endpoint\Provider\PersistentEndpointProvider;
 
 final class Stock
 {

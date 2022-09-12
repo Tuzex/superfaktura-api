@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
+use Codea\Superfaktura\Http\HttpClient;
+use Codea\Superfaktura\Http\MessageBody;
+use Codea\Superfaktura\Http\Request\PostRequest;
+use Codea\Superfaktura\Http\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Tuzex\Superfaktura\Http\HttpClient;
-use Tuzex\Superfaktura\Http\MessageBody;
-use Tuzex\Superfaktura\Http\Request\PostRequest;
-use Tuzex\Superfaktura\Http\Response;
 
 abstract class PostEndpoint implements Endpoint
 {

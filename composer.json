@@ -1,5 +1,5 @@
 {
-  "name": "tuzex/superfaktura",
+  "name": "codea/superfaktura",
   "description": "",
   "type": "library",
   "license": "MIT",
@@ -18,12 +18,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Tuzex\\Superfaktura\\": "src/"
+      "Codea\\Superfaktura\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tuzex\\Superfaktura\\Test\\": "tests"
+      "Codea\\Superfaktura\\Test\\": "tests"
     }
   },
   "require": {

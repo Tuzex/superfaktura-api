@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
 final class Collection extends Resource
 {

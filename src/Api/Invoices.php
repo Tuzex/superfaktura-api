@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
-use Tuzex\Superfaktura\Api\Invoices\GetListOfInvoices;
-use Tuzex\Superfaktura\Http\HttpClient;
+use Codea\Superfaktura\Api\Invoices\GetListOfInvoices;
+use Codea\Superfaktura\Http\HttpClient;
 
 final class Invoices
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Http;
+namespace Codea\Superfaktura\Http;
 
 interface Request
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Service;
+namespace Codea\Superfaktura\Service;
 
 use DateTimeImmutable;
 use DateTimeInterface;

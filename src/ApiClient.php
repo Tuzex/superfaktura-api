@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura;
+namespace Codea\Superfaktura;
 
-use Tuzex\Superfaktura\Api\Invoices;
-use Tuzex\Superfaktura\Api\Stock;
+use Codea\Superfaktura\Api\Invoices;
+use Codea\Superfaktura\Api\Stock;
 
 interface ApiClient
 {

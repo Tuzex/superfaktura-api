@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
-use Tuzex\Superfaktura\Http\Response;
+use Codea\Superfaktura\Http\Response;
 
 interface Endpoint
 {

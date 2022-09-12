@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
 use Closure;
 use Symfony\Component\OptionsResolver\OptionsResolver;

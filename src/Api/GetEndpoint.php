@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
+use Codea\Superfaktura\Http\HttpClient;
+use Codea\Superfaktura\Http\QueryString;
+use Codea\Superfaktura\Http\Request\GetRequest;
+use Codea\Superfaktura\Http\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Tuzex\Superfaktura\Http\HttpClient;
-use Tuzex\Superfaktura\Http\QueryString;
-use Tuzex\Superfaktura\Http\Request\GetRequest;
-use Tuzex\Superfaktura\Http\Response;
 
 abstract class GetEndpoint implements Endpoint
 {

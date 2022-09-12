@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Service\Endpoint;
+namespace Codea\Superfaktura\Service\Endpoint;
 
-use Tuzex\Superfaktura\Api\Endpoint;
+use Codea\Superfaktura\Api\Endpoint;
 
 interface EndpointProvider
 {

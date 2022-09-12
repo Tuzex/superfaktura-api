@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Api;
+namespace Codea\Superfaktura\Api;
 
 use ArrayIterator;
+use Codea\Superfaktura\Http\Response;
 use IteratorAggregate;
-use Tuzex\Superfaktura\Http\Response;
 
 class Resource implements IteratorAggregate
 {
@@ -23,7 +23,7 @@ class Resource implements IteratorAggregate
         $response = $this->getResponse();
         $statusCode = $response->getStatusCode();
 
-        return 200 <= $statusCode && 299 >= $statusCode;
+        return $statusCode >= 200 && $statusCode <= 299;
     }
 
     public function hasData(): bool

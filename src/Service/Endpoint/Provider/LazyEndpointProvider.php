@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Service\Endpoint\Provider;
+namespace Codea\Superfaktura\Service\Endpoint\Provider;
 
+use Codea\Superfaktura\Api\Endpoint;
+use Codea\Superfaktura\Service\Endpoint\EndpointDefinition;
+use Codea\Superfaktura\Service\Endpoint\EndpointProvider;
 use InvalidArgumentException;
-use Tuzex\Superfaktura\Api\Endpoint;
-use Tuzex\Superfaktura\Service\Endpoint\EndpointDefinition;
-use Tuzex\Superfaktura\Service\Endpoint\EndpointProvider;
 
 final class LazyEndpointProvider implements EndpointProvider
 {

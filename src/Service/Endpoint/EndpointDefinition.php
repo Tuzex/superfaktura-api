@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tuzex\Superfaktura\Service\Endpoint;
+namespace Codea\Superfaktura\Service\Endpoint;
 
 use Closure;
 
